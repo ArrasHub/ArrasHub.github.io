@@ -3,30 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My GitHub Pages Site</title>
+  <title>Scroll Line Animation</title>
   <style>
-    @keyframes bounce {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-30px); }
-      100% { transform: translateY(0); }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 2000px; /* Just to make sure you can scroll */
     }
 
-    .box {
-      width: 200px;
-      height: 200px;
-      background-color: #4CAF50;
-      animation: bounce 1s ease-in-out infinite;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
-
-    .box:hover {
-      transform: rotate(45deg);
+    .scroll-line {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
       background-color: #FF5722;
+      width: 0%;
+      transition: width 0.5s ease;
     }
+
+    /* Just some content for the page */
+    .content {
+      margin-top: 50px;
+      text-align: center;
+      font-size: 20px;
+    }
+
   </style>
 </head>
 <body>
-  <h1>Welcome to My GitHub Pages Site!</h1>
-  <div class="box"></div>
+  <!-- Scroll Line -->
+  <div class="scroll-line" id="scrollLine"></div>
+
+  <!-- Content -->
+  <div class="content">
+    <h1>Scroll Down to See the Line Animation!</h1>
+    <p>The line will animate as you scroll.</p>
+  </div>
+
+  <script>
+    // Detect scroll and animate the line
+    window.onscroll = function() {
+      var scrolled = document.documentElement.scrollTop || document.body.scrollTop;
+      var totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      var widthPercentage = (scrolled / totalHeight) * 100;
+
+      document.getElementById('scrollLine').style.width = widthPercentage + '%';
+    };
+  </script>
 </body>
 </html>
