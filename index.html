@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My GitHub Pages Site</title>
+  <style>
+    @keyframes bounce {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-30px); }
+      100% { transform: translateY(0); }
+    }
+
+    .box {
+      width: 200px;
+      height: 200px;
+      background-color: #4CAF50;
+      animation: bounce 1s ease-in-out infinite;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .box:hover {
+      transform: rotate(45deg);
+      background-color: #FF5722;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to My GitHub Pages Site!</h1>
+  <div class="box"></div>
+</body>
+</html>
